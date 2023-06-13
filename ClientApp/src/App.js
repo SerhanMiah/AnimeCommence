@@ -1,22 +1,29 @@
 import React, { Component } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import AppRoutes from './AppRoutes';
-import { Layout } from './components/Layout';
-import './custom.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from '../src/components/Home'
+import Products from './components/AnimeProducts/Products';
+import NavigationBar from './components/Navigation/NavigationBar';
+
 
 export default class App extends Component {
   static displayName = App.name;
 
   render() {
     return (
-      <Layout>
+
+      <Router>
+      <div className="App">
+        <NavigationBar />
         <Routes>
-          {AppRoutes.map((route, index) => {
-            const { element, ...rest } = route;
-            return <Route key={index} {...rest} element={element} />;
-          })}
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          
+          {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
-      </Layout>
+     
+      </div>
+    </Router>
+
     );
   }
 }

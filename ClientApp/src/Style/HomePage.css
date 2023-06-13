@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap'); /* Import a comic-style font */
+
+.homeContainer {
+  background-image: url('../assests/animeBackground.jpg'); 
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.homeRow {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  font-size: 4em;
+  font-family: 'Bangers', cursive; /* Comic-style font */
+  color: #ffffff;
+}
+
+p {
+  font-size: 1.5em;
+  color: #ffffff;
+}
+
+.learnMoreButton {
+  font-size: 1.2em;
+  border-color: #ffffff;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+
+.learnMoreButton:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
