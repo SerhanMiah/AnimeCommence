@@ -129,7 +129,7 @@ namespace AnimeShop.Controllers
                 }
 
                 
-                var model = new UserProfile
+                var model = new ApplicationUser
                 {
                     Id = user.Id,
                     Email = user.Email,

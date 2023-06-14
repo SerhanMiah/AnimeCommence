@@ -1,81 +1,16 @@
-/* HomePage.css */
-
 .homeContainer {
-  background-size: cover;
-  background-position: center;
-  color: white;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5em; /* Increased padding for better spacing */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
+  position: relative;
 }
 
-.homeRow {
-  margin-top: 20vh;
-}
-
-h1 {
-  font-size: 3em; /* Larger heading for stronger visual impact */
-}
-
-p {
-  font-size: 1.2em; /* Larger paragraph text for better readability */
-  max-width: 800px; /* Limit paragraph width for optimal reading comfort */
-  text-align: justify; /* Justified text for a more professional look */
-}
-
-.learnMoreButton {
-  margin-top: 20px;
-  border-color: white;
-  color: white;
-  font-size: 1.2em; /* Larger button text for better readability */
-  padding: 10px 20px; /* Larger button for better usability */
-}
-
-.categoryRow {
-  margin-top: 40px;
-  padding: 2em; /* Added padding for better spacing */
-}
-
-.categoryItems a {
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-  display: inline-block;
-  font-size: 1.2em; /* Larger category links for better readability */
-}
-
-.newsletterRow {
-  margin-top: 40px;
-}
-
-.subscribeButton {
-  margin-top: 20px;
-  border-color: white;
-  color: white;
-}
-
-/* Carousel Styles */
-.carousel .carousel-item {
-  height: 300px;
-}
-
-.carousel-item img {
-  height: 100%;
-  object-fit: cover;
-}
-
-.backgroundVideo {
+.backgroundImage {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.8);
 }
 
 .videoOverlay {
@@ -84,6 +19,101 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.homeContent {
+  position: relative;
+  z-index: 1;
+}
+
+.homeTitle {
+  font-size: 3rem;
+  color: #3d3d3d;
+  margin-bottom: 1rem;
+  animation: fadeInDown 1s ease;
+}
+
+.homeSubtitle {
+  font-size: 1.5rem;
+  color: #494949;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 1s ease;
+}
+
+.homeButton {
+  font-size: 1.2rem;
+  animation: fadeIn 1s ease;
+}
+
+.scrollDown {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInUp 1s ease 1s forwards;
+}
+
+.scrollDown p {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.arrowIcon {
+  width: 24px;
+  height: 24px;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(45deg);
+  animation: arrowBounce 1s ease infinite;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes arrowBounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

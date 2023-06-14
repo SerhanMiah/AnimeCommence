@@ -1,62 +1,74 @@
-/* Navbar.css */
-
 .navbar {
-  padding: 0.5rem 1rem;  /* Adjust padding as needed */
-  background-color: #000;  /* Black background */
+  background-color: #333;
+  padding: 1rem;
 }
 
 .navbar-brand {
-  color: #fff;  /* White text */
-  font-size: 1.5rem;  /* Adjust font size as needed */
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
 }
 
 .navbar-nav .nav-link {
-  color: #fff;  /* White text */
-  padding: 0.5rem 1rem;  /* Adjust padding as needed */
+  font-size: 1rem;
+  color: #fff;
+  padding: 0.5rem 1rem;
 }
 
 .navbar-nav .nav-link:hover {
-  color: #ffb900;  /* Change color when hover */
+  color: #ffc107;
 }
 
-.navbar-nav .nav-link .fa-user {
-  margin-right: 5px;  /* Space between icon and text */
+.navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+  display: block;
 }
 
-.navbar-nav .show > .nav-link, .navbar-nav .active > .nav-link {
-  color: #ffb900;  /* Change color when active or open */
+.dropdown-menu {
+  background-color: #333;
+  border: none;
 }
 
-.navbar-nav .dropdown-menu {
-  background-color: #000;  /* Black dropdown menu */
+.dropdown-item {
+  color: #fff;
+  padding: 0.5rem 1rem;
 }
 
-.navbar-nav .dropdown-menu .dropdown-item {
-  color: #fff;  /* White text */
+.dropdown-item:hover {
+  background-color: #ffc107;
+  color: #333;
 }
 
-.navbar-nav .dropdown-menu .dropdown-item:hover {
-  color: #ffb900;  /* Change color when hover */
+.searchForm {
+  margin-left: 1rem;
 }
 
 .searchForm .form-control {
-  border-color: #fff;  /* White border */
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
 }
 
-.searchForm .btn-outline-light {
-  color: #fff;  /* White text */
-  border-color: #fff;  /* White border */
+.searchForm .btn {
+  background-color: #fff;
+  border-color: #fff;
+  color: #333;
 }
 
-.searchForm .btn-outline-light:hover {
-  color: #000;  /* Black text */
-  background-color: #fff;  /* White background */
-  border-color: #fff;  /* White border */
+.ml-auto .nav-link {
+  margin-left: 1rem;
 }
 
-@media (max-width: 991.98px) {
-  .navbar-nav .dropdown-menu {
-    position: static;
-    float: none;
+.ml-auto .nav-link:first-child {
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding: 0.5rem;
+  }
+  
+  .searchForm {
+    margin-left: 0;
+    margin-top: 1rem;
   }
 }
