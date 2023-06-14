@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5; /* light gray */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+button {
+  margin-top: 20px;
+}

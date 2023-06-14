@@ -9,8 +9,8 @@ function Products() {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
   
-  const handleProductClick = (productId) => {
-    navigate(`/product/${productId}`);
+  const handleProductClick = (id) => {
+    navigate(`/products/${id}`);
   };
 
   const handleAddToCart = (productId) => {
@@ -33,8 +33,8 @@ function Products() {
   return (
     <div className="product-grid">
       <h1 className="w-100 text-center mb-4">Anime Products</h1>
-      {products.map((product, index) => (
-        <Card key={index} className="product-card" onClick={() => handleProductClick(product.id)}>
+      {products.map((id, product, index) => (
+        <Card key={id} className="product-card" onClick={() => handleProductClick(id)}>
           <Card.Img variant="top" className="product-image" src={product.images ? product.images[0] : 'defaultImage.jpg'} />
           <Card.Body className="product-body">
             <Card.Title className="product-name">{product.name}</Card.Title>
