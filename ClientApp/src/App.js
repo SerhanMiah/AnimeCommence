@@ -7,6 +7,7 @@ import Footer from './components/Navigation/Footer';
 import ProductDetail from './components/AnimeProducts/ProductDetail';
 import Register from './components/Authorization/Register';
 import Login from './components/Authorization/Login';
+import Profile from './components/Authorization/Profile';
 
 
 export default class App extends Component {
@@ -27,6 +28,9 @@ export default class App extends Component {
           {/* Profile */}
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
+
+
 
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>

@@ -1,26 +1,34 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { setToken, setId } from '../helpers/auth';
 import '../../Style/Login.css'
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate()
     const [user, setUser] = useState({Email: '', Password: ''});
 
     const handleChange = e => {
         setUser({...user, [e.target.name]: e.target.value });
     }
 
-    const login = () => {
-        axios.post('http://localhost:5000/api/account/login', user)
-            .then(response => {
-                console.log(response);
-               
-            })
-            .catch(error => {
-             
-                console.log(error);
-            });
-    }
+    const login = async () => {
+        try {
+            const response = await axios.post('http://localhost:5000/api/account/login', user);
+            console.log('Login response data:', response.data);  // Log the response data
+            const token = response.data.token;  // Extract the token
+            console.log('Token:', token); // check the Token
+            setToken(token);
+            // handle success
+            console.log('login successful', response);
+            navigate('/');
+        } catch (error) {
+            // handle error
+            console.log(error);
+        };
+    };
+    
 
     return (
         <Container>

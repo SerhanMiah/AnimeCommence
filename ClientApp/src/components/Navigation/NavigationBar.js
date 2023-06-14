@@ -1,15 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 import '../../Style/Navbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
+import { userIsAuthenticated } from '../../components/helpers/auth';
+
 
 function NavigationBar() {
+  const [isAuthenticated, setIsAuthenticated] = useState(userIsAuthenticated());
+  const navigate = useNavigate()
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    // This function gets called whenever the localStorage changes
+    const handleStorageChange = () => {
+      setIsAuthenticated(userIsAuthenticated());
+    };
+
+    // Subscribe to localStorage changes
+    window.addEventListener('storage', handleStorageChange);
+
+    // Unsubscribe when the component unmounts
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
+
+  // Handle Logout 
+  const handleLogOut = async () => {
+    try {
+        window.localStorage.removeItem('local-user-Token');
+        setIsAuthenticated(userIsAuthenticated());
+        navigate('/');
+        alert('You have been logged out');
+    } catch (error) {
+        console.error('Failed to log out', error);
+    }
+  }
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="black" variant="dark">
@@ -17,7 +46,8 @@ function NavigationBar() {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-        <Nav.Link onClick={() => navigate('/products')}>All Products</Nav.Link>
+          <Nav.Link onClick={() => navigate('/products')}>All Products</Nav.Link>
+          {/* Rest of your navigation items */}
           <NavDropdown title="Manga" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Shonen</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">Shojo</NavDropdown.Item>
@@ -42,13 +72,26 @@ function NavigationBar() {
           <Button variant="outline-light">Search</Button>
         </Form>
         <Nav className="ml-auto">
-          <Nav.Link href="#login">
-            <FontAwesomeIcon icon={faUser} /> Login
-          </Nav.Link>
-          <Nav.Link href="#signup">
-            <FontAwesomeIcon icon={faUser} /> Sign up
-          </Nav.Link>
-          <Nav.Link href="#cart">Cart</Nav.Link>
+          { isAuthenticated
+          ? <>
+            <Nav.Link as={Link} to="/profile">
+              <FontAwesomeIcon icon={faUser} /> Profile
+            </Nav.Link>
+            <Nav.Link onClick={handleLogOut}>
+              <FontAwesomeIcon icon={faUser} /> Logout
+            </Nav.Link>
+            <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
+          </>
+          : <>
+            <Nav.Link as={Link} to="/login">
+              <FontAwesomeIcon icon={faUser} /> Login
+            </Nav.Link>
+            <Nav.Link as={Link} to="/register">
+              <FontAwesomeIcon icon={faUser} /> Register
+            </Nav.Link>
+            <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
+          </>
+          }
         </Nav>
       </Navbar.Collapse>
     </Navbar>

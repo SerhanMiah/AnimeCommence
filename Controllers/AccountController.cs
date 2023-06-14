@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AnimeCommence.Models;
 using AnimeShop.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -107,6 +108,50 @@ namespace AnimeShop.Controllers
                 return BadRequest("An error occurred while logging in.");
             }
         }
+        [Authorize]
+        [HttpGet]
+        [Route("profile")]
+        public async Task<IActionResult> GetProfile()
+        {
+            try
+            {
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+                if (string.IsNullOrEmpty(userId))
+                {
+                    return Unauthorized();
+                }
+
+                var user = await _userManager.FindByIdAsync(userId);
+                if (user == null)
+                {
+                    return NotFound("User not found.");
+                }
+
+                
+                var model = new UserProfile
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    UserName = user.UserName,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Address = user.Address,
+                    City = user.City,
+                    State = user.State,
+                    PostalCode = user.PostalCode,
+                    Country = user.Country
+                };
+
+                return Ok(model);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return BadRequest("An error occurred while getting the profile.");
+            }
+        }
+
 
         private string GenerateJwtToken(List<Claim> claims)
         {
