@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Rating from 'react-rating-stars-component';
 import { Card, Button } from 'react-bootstrap';
+import Rating from 'react-rating-stars-component';
 import '../../Style/Product.css'
+import { useNavigate } from 'react-router-dom';
 
 function Products() {
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
+  
+  const handleProductClick = (productId) => {
+    navigate(`/product/${productId}`);
+  };
+
+  const handleAddToCart = (productId) => {
+    // Functionality to add the product to the cart
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,24 +31,13 @@ function Products() {
   }, []);
 
   return (
-    <div className="d-flex flex-wrap justify-content-around">
+    <div className="product-grid">
       <h1 className="w-100 text-center mb-4">Anime Products</h1>
       {products.map((product, index) => (
-        <Card key={index} style={{ width: '18rem', marginBottom: '20px' }}>
-          <Card.Img variant="top" src={product.images ? product.images[0] : 'defaultImage.jpg'} />
-          <Card.Body>
-            <Card.Title>{product.name}</Card.Title>
-            <Card.Text>
-              {product.description}
-              <br />
-              <strong>Publisher: </strong> {product.publisher}
-              <br />
-              <strong>Release Date: </strong> {new Date(product.releaseDate).toLocaleDateString()}
-              <br />
-              <strong>Genre: </strong> {product.genre}
-              <br />
-              <strong>Category: </strong> {product.category}
-            </Card.Text>
+        <Card key={index} className="product-card" onClick={() => handleProductClick(product.id)}>
+          <Card.Img variant="top" className="product-image" src={product.images ? product.images[0] : 'defaultImage.jpg'} />
+          <Card.Body className="product-body">
+            <Card.Title className="product-name">{product.name}</Card.Title>
             <Rating
               count={5}
               size={24}
@@ -46,8 +45,8 @@ function Products() {
               value={product.rating}
               edit={false}
             />
-            <p><strong>Price:</strong> ${product.price}</p>
-            <Button variant="primary">Add to Cart</Button>
+            <p className="product-price"><strong>${product.price}</strong></p>
+            <Button variant="primary" onClick={() => handleAddToCart(product.id)}>Add to Cart</Button>
           </Card.Body>
         </Card>
       ))}

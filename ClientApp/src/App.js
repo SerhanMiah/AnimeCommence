@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from '../src/components/Home'
 import Products from './components/AnimeProducts/Products';
 import NavigationBar from './components/Navigation/NavigationBar';
+import Footer from './components/Navigation/Footer';
 
 
 export default class App extends Component {
@@ -20,7 +21,7 @@ export default class App extends Component {
           
           {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
-     
+        <Footer />
       </div>
     </Router>
 

@@ -1,40 +1,89 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap'); /* Import a comic-style font */
+/* HomePage.css */
 
 .homeContainer {
-  background-image: url('../assests/animeBackground.jpg'); 
   background-size: cover;
   background-position: center;
+  color: white;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5em; /* Increased padding for better spacing */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
 }
 
 .homeRow {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-top: 20vh;
 }
 
 h1 {
-  font-size: 4em;
-  font-family: 'Bangers', cursive; /* Comic-style font */
-  color: #ffffff;
+  font-size: 3em; /* Larger heading for stronger visual impact */
 }
 
 p {
-  font-size: 1.5em;
-  color: #ffffff;
+  font-size: 1.2em; /* Larger paragraph text for better readability */
+  max-width: 800px; /* Limit paragraph width for optimal reading comfort */
+  text-align: justify; /* Justified text for a more professional look */
 }
 
 .learnMoreButton {
-  font-size: 1.2em;
-  border-color: #ffffff;
-  color: #ffffff;
-  transition: all 0.5s ease;
+  margin-top: 20px;
+  border-color: white;
+  color: white;
+  font-size: 1.2em; /* Larger button text for better readability */
+  padding: 10px 20px; /* Larger button for better usability */
 }
 
-.learnMoreButton:hover {
-  background-color: #ffffff;
-  color: #000000;
+.categoryRow {
+  margin-top: 40px;
+  padding: 2em; /* Added padding for better spacing */
+}
+
+.categoryItems a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  display: inline-block;
+  font-size: 1.2em; /* Larger category links for better readability */
+}
+
+.newsletterRow {
+  margin-top: 40px;
+}
+
+.subscribeButton {
+  margin-top: 20px;
+  border-color: white;
+  color: white;
+}
+
+/* Carousel Styles */
+.carousel .carousel-item {
+  height: 300px;
+}
+
+.carousel-item img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.backgroundVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.videoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
 }

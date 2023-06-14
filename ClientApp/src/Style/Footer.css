@@ -1,0 +1,23 @@
+/* Footer.css */
+
+.footerContainer {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 20px;
+}
+
+.newsletterRow {
+  margin-bottom: 20px;
+}
+
+.gitLink {
+  color: white;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.subscribeButton {
+  margin-top: 20px;
+  border-color: white;
+  color: white;
+}
