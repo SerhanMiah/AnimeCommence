@@ -25,6 +25,7 @@ export default class App extends Component {
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetail />} />
 
+
           <Route path="/products/:genre" element={<ShouenManga />} />
 
 

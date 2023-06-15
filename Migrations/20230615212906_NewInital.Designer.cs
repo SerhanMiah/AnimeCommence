@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AnimeShop.Migrations
 {
     [DbContext(typeof(ContextAnime))]
-    [Migration("20230615155659_InitalCreate")]
-    partial class InitalCreate
+    [Migration("20230615212906_NewInital")]
+    partial class NewInital
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -76,31 +76,31 @@ namespace AnimeShop.Migrations
                         new
                         {
                             ImageId = 6,
-                            ImageUrl = "https://your-url.com/naruto-image1.jpg",
+                            ImageUrl = "https://example.com/image1.jpg",
                             ProductId = 2
                         },
                         new
                         {
                             ImageId = 7,
-                            ImageUrl = "https://your-url.com/naruto-image2.jpg",
+                            ImageUrl = "https://example.com/image2.jpg",
                             ProductId = 2
                         },
                         new
                         {
                             ImageId = 8,
-                            ImageUrl = "https://your-url.com/naruto-image3.jpg",
+                            ImageUrl = "https://example.com/image3.jpg",
                             ProductId = 2
                         },
                         new
                         {
                             ImageId = 9,
-                            ImageUrl = "https://your-url.com/naruto-image4.jpg",
+                            ImageUrl = "https://example.com/image4.jpg",
                             ProductId = 2
                         },
                         new
                         {
                             ImageId = 10,
-                            ImageUrl = "https://your-url.com/naruto-image5.jpg",
+                            ImageUrl = "https://example.com/image5.jpg",
                             ProductId = 2
                         });
                 });
@@ -250,6 +250,10 @@ namespace AnimeShop.Migrations
                     b.Property<string>("Subtitles")
                         .HasColumnType("longtext");
 
+                    b.Property<string>("TrailerUrl")
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
+
                     b.HasKey("ProductId");
 
                     b.ToTable("Products");
@@ -258,26 +262,36 @@ namespace AnimeShop.Migrations
                         new
                         {
                             ProductId = 1,
+                            Artist = "Eiichiro Oda",
+                            Author = "Eiichiro Oda",
                             Category = "DVD",
-                            Description = "The complete first season of One Piece anime series on DVD.",
+                            Color = "Blue",
+                            Description = "Monkey D. Luffy wants to become the King of all pirates.",
                             Duration = 750,
                             Genre = "Shonen",
+                            ISBN = "123-4567891234",
                             InStock = true,
+                            Language = "English",
+                            Manufacturer = "Toei Animation",
                             Name = "One Piece Season 1",
-                            Pages = 0,
+                            Pages = 200,
+                            Platform = "DVD",
                             Price = 29.99m,
                             Publisher = "Toei Animation",
-                            Quantity = 0,
+                            Quantity = 100,
                             Rating = 4.9f,
                             Region = "Region 1",
                             ReleaseDate = new DateTime(1999, 10, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Subtitles = "English"
+                            Size = "Medium",
+                            Studio = "Toei Animation",
+                            Subtitles = "English",
+                            TrailerUrl = "https://www.youtube.com/watch?v=UTMoDHvgaJk"
                         },
                         new
                         {
                             ProductId = 2,
                             Category = "DVD",
-                            Description = "The first box set of Naruto anime series on DVD.",
+                            Description = "Immerse yourself in the thrilling world of Naruto with the first box set of the iconic anime series on DVD. This box set includes the exhilarating episodes from the early seasons, introducing you to the epic journey of Naruto Uzumaki as he aspires to become the strongest ninja in his village.",
                             Duration = 840,
                             Genre = "Shonen",
                             InStock = true,

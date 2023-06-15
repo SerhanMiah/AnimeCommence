@@ -86,6 +86,10 @@ namespace AnimeShop.Models
         public string? Region { get; set; }
 
         public string? Subtitles { get; set; }
+
+        [Url]
+        [StringLength(200)]
+        public string? TrailerUrl { get; set; }
     }
 
     public class Image

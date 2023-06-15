@@ -247,6 +247,10 @@ namespace AnimeShop.Migrations
                     b.Property<string>("Subtitles")
                         .HasColumnType("longtext");
 
+                    b.Property<string>("TrailerUrl")
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
+
                     b.HasKey("ProductId");
 
                     b.ToTable("Products");
@@ -255,26 +259,36 @@ namespace AnimeShop.Migrations
                         new
                         {
                             ProductId = 1,
+                            Artist = "Eiichiro Oda",
+                            Author = "Eiichiro Oda",
                             Category = "DVD",
-                            Description = "Embark on an epic adventure with the complete first season of the beloved One Piece anime series. Join Monkey D. Luffy and his spirited crew as they set sail in search of the legendary treasure, the One Piece. Immerse yourself in a world of thrilling battles, unforgettable characters, and awe-inspiring discoveries. This DVD set captures the essence of the captivating Shonen genre, delivering heart-pounding action and boundless excitement. With a runtime of 750 minutes, you'll be captivated by the enthralling storyline and incredible animation brought to life by Toei Animation, the acclaimed studio behind this iconic series. Explore the vibrant world of One Piece as you witness the beginning of Luffy's extraordinary journey. Experience the bonds of friendship, the thrill of adventure, and the pursuit of dreams in this timeless masterpiece. The 'One Piece Season 1' DVD set is a must-have for fans and collectors alike. It features the original Japanese audio with English subtitles, allowing you to fully immerse yourself in the authentic storytelling. This Region 1 DVD edition ensures compatibility for your viewing pleasure.Don't miss your chance to own this treasure trove of entertainment. Get ready to set sail with Luffy and his crew on this remarkable voyage that has captivated audiences worldwide!",
+                            Color = "Blue",
+                            Description = "Monkey D. Luffy wants to become the King of all pirates.",
                             Duration = 750,
                             Genre = "Shonen",
+                            ISBN = "123-4567891234",
                             InStock = true,
+                            Language = "English",
+                            Manufacturer = "Toei Animation",
                             Name = "One Piece Season 1",
-                            Pages = 0,
+                            Pages = 200,
+                            Platform = "DVD",
                             Price = 29.99m,
                             Publisher = "Toei Animation",
-                            Quantity = 0,
+                            Quantity = 100,
                             Rating = 4.9f,
                             Region = "Region 1",
                             ReleaseDate = new DateTime(1999, 10, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Subtitles = "English"
+                            Size = "Medium",
+                            Studio = "Toei Animation",
+                            Subtitles = "English",
+                            TrailerUrl = "https://www.youtube.com/watch?v=UTMoDHvgaJk"
                         },
                         new
                         {
                             ProductId = 2,
                             Category = "DVD",
-                            Description = "Immerse yourself in the thrilling world of Naruto with the first box set of the iconic anime series on DVD. This box set includes the exhilarating episodes from the early seasons, introducing you to the epic journey of Naruto Uzumaki as he aspires to become the strongest ninja in his village. Join Naruto and his friends as they navigate through challenges, uncover secrets, and face powerful adversaries. With stunning animation, captivating storytelling, and memorable characters, Naruto Box Set 1 is a must-have for every anime fan. Dive into the action-packed episodes, witness Naruto's determination, and experience the bonds of friendship that transcend limits. This DVD box set features the original Japanese audio with English subtitles, ensuring an authentic viewing experience. Get ready to embark on an unforgettable ninja adventure with Naruto Box Set 1!",
+                            Description = "Immerse yourself in the thrilling world of Naruto with the first box set of the iconic anime series on DVD. This box set includes the exhilarating episodes from the early seasons, introducing you to the epic journey of Naruto Uzumaki as he aspires to become the strongest ninja in his village.",
                             Duration = 840,
                             Genre = "Shonen",
                             InStock = true,
