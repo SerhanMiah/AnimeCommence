@@ -7,17 +7,66 @@
 }
 
 .crunch-form {
-  background: white;
+  background: #fff;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 30px;
   margin: 20px;
+  max-width: 400px;
+}
+
+.crunch-form h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #ff6c00; /* orange */
 }
 
 .crunch-form .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.crunch-form label {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.crunch-form input[type="text"],
+.crunch-form input[type="email"],
+.crunch-form input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: border-color 0.3s ease;
+}
+
+.crunch-form input[type="text"]:focus,
+.crunch-form input[type="email"]:focus,
+.crunch-form input[type="password"]:focus {
+  border-color: #ff6c00; /* orange */
+}
+
+.crunch-form .text-danger {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
 .crunch-form button {
   width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #ff6c00; /* orange */
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.crunch-form button:hover {
+  background-color: #e65c00; /* dark orange */
 }

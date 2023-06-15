@@ -8,6 +8,7 @@ import ProductDetail from './components/AnimeProducts/ProductDetail';
 import Register from './components/Authorization/Register';
 import Login from './components/Authorization/Login';
 import Profile from './components/Authorization/Profile';
+import ShouenManga from './components/AnimeProducts/GenreProducts';
 
 
 export default class App extends Component {
@@ -23,6 +24,8 @@ export default class App extends Component {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetail />} />
+
+          <Route path="/products/:genre" element={<ShouenManga />} />
 
 
           {/* Profile */}

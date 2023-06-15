@@ -9,8 +9,9 @@ export const setId = (id) => {
 }
 
 export const getToken = () => {
-  return window.localStorage.getItem('local-user-Token')
-}
+  return window.localStorage.getItem('local-user-Token');
+};
+
 
 export const getId = () => {
   return window.localStorage.getItem('local-user-Id')

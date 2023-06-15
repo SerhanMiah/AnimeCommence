@@ -108,6 +108,9 @@ namespace AnimeShop.Controllers
                 return BadRequest("An error occurred while logging in.");
             }
         }
+
+
+        
         [Authorize]
         [HttpGet]
         [Route("profile")]
