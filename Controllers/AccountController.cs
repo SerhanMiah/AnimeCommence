@@ -111,66 +111,65 @@ namespace AnimeShop.Controllers
 
 
         
-        [Authorize]
-        [HttpGet]
-        [Route("profile")]
-        public async Task<IActionResult> GetProfile()
+[Authorize]
+[HttpGet]
+[Route("profile")]
+public async Task<IActionResult> GetProfile()
+{
+    try
+    {
+        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        if (string.IsNullOrEmpty(userId))
         {
-            try
-            {
-                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-                if (string.IsNullOrEmpty(userId))
-                {
-                    return Unauthorized();
-                }
-
-                var user = await _userManager.FindByIdAsync(userId);
-                if (user == null)
-                {
-                    return NotFound("User not found.");
-                }
-
-                
-                var model = new ApplicationUser
-                {
-                    Id = user.Id,
-                    Email = user.Email,
-                    UserName = user.UserName,
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
-                    Address = user.Address,
-                    City = user.City,
-                    State = user.State,
-                    PostalCode = user.PostalCode,
-                    Country = user.Country
-                };
-
-                return Ok(model);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return BadRequest("An error occurred while getting the profile.");
-            }
+            return Unauthorized();
         }
+
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user == null)
+        {
+            return NotFound("User not found.");
+        }
+
+        var profile = new
+        {
+            Id = user.Id,
+            Email = user.Email,
+            UserName = user.UserName,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Address = user.Address,
+            City = user.City,
+            State = user.State,
+            PostalCode = user.PostalCode,
+            Country = user.Country
+        };
+
+        return Ok(profile);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex.Message);
+        return BadRequest("An error occurred while getting the profile.");
+    }
+}
 
 
         private string GenerateJwtToken(List<Claim> claims)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var expires = DateTime.Now.AddDays(Convert.ToDouble(_configuration["Jwt:ExpireDays"]));
+            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
-                _configuration["Jwt:Issuer"],
-                _configuration["Jwt:Issuer"],
-                claims,
-                expires: expires,
-                signingCredentials: creds
+                issuer: _configuration["Jwt:Issuer"],
+                audience: _configuration["Jwt:Issuer"],
+                claims: claims,
+                expires: DateTime.UtcNow.AddDays(7),
+                signingCredentials: credentials
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
     }
 }

@@ -37,7 +37,7 @@ const Register = () => {
     try {
       const { data } = await axios.post('http://localhost:5000/api/account/register', user);
       console.log('user has been successfully created', data);
-      // navigate('/login');
+      navigate('/login');
     } catch (error) {
       setErrors(error.message);
       console.log(error.message);

@@ -7,7 +7,7 @@ import Footer from './components/Navigation/Footer';
 import ProductDetail from './components/AnimeProducts/ProductDetail';
 import Register from './components/Authorization/Register';
 import Login from './components/Authorization/Login';
-import Profile from './components/Authorization/Profile';
+import Profile from './components/Authorization/ProfilePage';
 import ShouenManga from './components/AnimeProducts/GenreProducts';
 
 

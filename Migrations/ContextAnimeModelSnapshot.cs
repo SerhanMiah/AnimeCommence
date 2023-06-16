@@ -73,32 +73,242 @@ namespace AnimeShop.Migrations
                         new
                         {
                             ImageId = 6,
-                            ImageUrl = "https://example.com/image1.jpg",
+                            ImageUrl = "https://res.cloudinary.com/danedskby/image/upload/v1686923807/Naruto/naruto-vol-68-9781421576824_hr_rlrggo.jpg",
                             ProductId = 2
                         },
                         new
                         {
                             ImageId = 7,
-                            ImageUrl = "https://example.com/image2.jpg",
+                            ImageUrl = "https://res.cloudinary.com/danedskby/image/upload/v1686923807/Naruto/naruto1_visual_xziu06.webp",
                             ProductId = 2
                         },
                         new
                         {
                             ImageId = 8,
-                            ImageUrl = "https://example.com/image3.jpg",
+                            ImageUrl = "https://res.cloudinary.com/danedskby/image/upload/v1686923806/Naruto/b12b9782aa863b75cdbee3a35ab62bd2_fy0bob.jpg",
                             ProductId = 2
                         },
                         new
                         {
                             ImageId = 9,
-                            ImageUrl = "https://example.com/image4.jpg",
+                            ImageUrl = "https://res.cloudinary.com/danedskby/image/upload/v1686923806/Naruto/AAAABYxJFBDckfZw1YUEIPwyuIg43Kw_HUBLvnCcgdOlvvf5Nc90SF3HSAi5L8uLyBqjziKBY-kGD2wu2JAqVsdHVR0frb6qG26I_U5v_a9ihom.jpg",
                             ProductId = 2
                         },
                         new
                         {
                             ImageId = 10,
-                            ImageUrl = "https://example.com/image5.jpg",
+                            ImageUrl = "https://res.cloudinary.com/danedskby/image/upload/v1686923806/Naruto/Profil-Picture-Naruto-Shippuden-600x600_ycugfi.webp",
                             ProductId = 2
+                        },
+                        new
+                        {
+                            ImageId = 11,
+                            ImageUrl = "https://res.cloudinary.com/danedskby/image/upload/v1686924055/Bleach/image-asset_hoalrl.jpg",
+                            ProductId = 3
+                        },
+                        new
+                        {
+                            ImageId = 12,
+                            ImageUrl = "https://res.cloudinary.com/danedskby/image/upload/v1686924055/Bleach/bleach-20th-anniversary-anime-return_cicuq1.jpg",
+                            ProductId = 3
+                        },
+                        new
+                        {
+                            ImageId = 13,
+                            ImageUrl = "https://res.cloudinary.com/danedskby/image/upload/v1686924055/Bleach/3f367-16729468481724_euq3zu.avif",
+                            ProductId = 3
+                        },
+                        new
+                        {
+                            ImageId = 14,
+                            ImageUrl = "https://res.cloudinary.com/danedskby/image/upload/v1686924055/Bleach/LzRDfFeNHeUCtpH-1600x900-noPad_pns11d.jpg",
+                            ProductId = 3
+                        },
+                        new
+                        {
+                            ImageId = 15,
+                            ImageUrl = "https://res.cloudinary.com/danedskby/image/upload/v1686924055/Bleach/LzRDfFeNHeUCtpH-1600x900-noPad_pns11d.jpg",
+                            ProductId = 3
+                        },
+                        new
+                        {
+                            ImageId = 16,
+                            ImageUrl = "https://cdn.vox-cdn.com/thumbor/6zsaqAYi7xeMcbhLW4MsxUN6NZs=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/3652050/wall6_wallpaper_1280x800.0.jpg",
+                            ProductId = 4
+                        },
+                        new
+                        {
+                            ImageId = 17,
+                            ImageUrl = "https://m.media-amazon.com/images/I/71iprqtljOL._AC_UF1000,1000_QL80_.jpg",
+                            ProductId = 4
+                        },
+                        new
+                        {
+                            ImageId = 18,
+                            ImageUrl = "https://e24joaz2t6m.exactdn.com/wp-content/uploads/2016/07/DragonBallZ-Season1-a.jpg",
+                            ProductId = 4
+                        },
+                        new
+                        {
+                            ImageId = 19,
+                            ImageUrl = "https://www.crunchyroll.com/imgsrv/display/thumbnail/1200x675/catalog/crunchyroll/36bdc5ea4443cd8e42f22ec7d3884cbb.jpe",
+                            ProductId = 4
+                        },
+                        new
+                        {
+                            ImageId = 20,
+                            ImageUrl = "https://assets.mycast.io/posters/dragon-ball-z-netflix-season-1-saiyan-saga-fan-casting-poster-144948-large.jpg?1636572989",
+                            ProductId = 4
+                        },
+                        new
+                        {
+                            ImageId = 21,
+                            ImageUrl = "https://m.media-amazon.com/images/I/81mOMGHVHdL._AC_UF1000,1000_QL80_.jpg",
+                            ProductId = 5
+                        },
+                        new
+                        {
+                            ImageId = 22,
+                            ImageUrl = "https://i0.wp.com/boldcanon.com/wp-content/uploads/2019/09/mv5bnmqzyme2mgetzjk4ys00ymvjlwewzwmtodrkmjc4mtm5n2i3xkeyxkfqcgdeqxvyntayodkwoq4040._v1_-e1567632423552.jpg?resize=1000%2C720&ssl=1",
+                            ProductId = 5
+                        },
+                        new
+                        {
+                            ImageId = 23,
+                            ImageUrl = "https://twinfinite.net/wp-content/uploads/2022/04/my-hero-academia-season-1-1.jpg?fit=1200%2C675",
+                            ProductId = 5
+                        },
+                        new
+                        {
+                            ImageId = 24,
+                            ImageUrl = "https://www.screenspy.com/wp-content/uploads/2022/04/Screenshotter-MyHeroAcademiaE7DekuvsKacchan-1943.jpg",
+                            ProductId = 5
+                        },
+                        new
+                        {
+                            ImageId = 25,
+                            ImageUrl = "https://i0.wp.com/butwhytho.net/wp-content/uploads/2022/11/My-Hero-Academia-Episode-122-But-Why-Tho-1.jpg?fit=800%2C410&ssl=1",
+                            ProductId = 5
+                        },
+                        new
+                        {
+                            ImageId = 26,
+                            ImageUrl = "https://static.wikia.nocookie.net/onepunchman/images/c/cd/One-Punch_Man_TV_Anime_Key_Visual.png/revision/latest?cb=20220818034817",
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            ImageId = 27,
+                            ImageUrl = "https://img4.hulu.com/user/v3/artwork/34ebf58e-5a2a-4efa-8e4d-fb16039a3051?base_image_bucket_name=image_manager&base_image=ec6b707a-85c2-4d7c-9e3d-f9adf79004e3&size=600x338&format=jpeg",
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            ImageId = 28,
+                            ImageUrl = "https://e0.pxfuel.com/wallpapers/84/241/desktop-wallpaper-one-punch-man-best-season-1-funny-saitama.jpg",
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            ImageId = 29,
+                            ImageUrl = "https://static.wikia.nocookie.net/onepunchman/images/9/99/Puri-Puri_Prisoner_vs._Deep_Sea_King.png/revision/latest?cb=20160101201537",
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            ImageId = 30,
+                            ImageUrl = "https://images-na.ssl-images-amazon.com/images/S/pv-target-images/c5ef21697095ba7cc0bbec2c96dafca98119bac23349e0a8baac7d78a4107c07._RI_TTW_SX720_FMjpg_.jpg",
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            ImageId = 31,
+                            ImageUrl = "https://m.media-amazon.com/images/M/MV5BYTIxNjk3YjItYmYzMC00ZTdmLTk0NGUtZmNlZTA0NWFkZDMwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_UY1200_CR85,0,630,1200_AL_.jpg",
+                            ProductId = 7
+                        },
+                        new
+                        {
+                            ImageId = 32,
+                            ImageUrl = "https://images.immediate.co.uk/production/volatile/sites/3/2022/10/Demon-Slayer-Attack-Different-Swords-8836587.jpg",
+                            ProductId = 7
+                        },
+                        new
+                        {
+                            ImageId = 33,
+                            ImageUrl = "https://www.hindustantimes.com/ht-img/img/2023/04/05/1600x900/Demon_slayer_season_2_recap_1680711861129_1680711892122_1680711892122.png",
+                            ProductId = 7
+                        },
+                        new
+                        {
+                            ImageId = 34,
+                            ImageUrl = "https://cdn.vox-cdn.com/thumbor/JBMeqrjWveSK05wPniHAOUzErrI=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/24423451/Demon_Slayer_World_Tour_KV_ENG.jpg",
+                            ProductId = 7
+                        },
+                        new
+                        {
+                            ImageId = 35,
+                            ImageUrl = "https://cdn.animenewsnetwork.com/thumbnails/max650x650/cms/news.6/192798/kimetsu_worldtour.jpg",
+                            ProductId = 7
+                        },
+                        new
+                        {
+                            ImageId = 36,
+                            ImageUrl = "https://flxt.tmsimg.com/assets/p10873160_b1t_v8_aa.jpg",
+                            ProductId = 8
+                        },
+                        new
+                        {
+                            ImageId = 37,
+                            ImageUrl = "https://2danicritic.github.io/index_files/ReviewImages/review_Attack_on_Titan_-_Season_12.jpg",
+                            ProductId = 8
+                        },
+                        new
+                        {
+                            ImageId = 38,
+                            ImageUrl = "https://static.wikia.nocookie.net/shingekinokyojin/images/8/83/Eren_vs_Colossal_Titan.png/revision/latest?cb=20170623113218",
+                            ProductId = 8
+                        },
+                        new
+                        {
+                            ImageId = 39,
+                            ImageUrl = "https://static.wikia.nocookie.net/shingekinokyojin/images/8/83/Eren_vs_Colossal_Titan.png/revision/latest?cb=20170623113218",
+                            ProductId = 8
+                        },
+                        new
+                        {
+                            ImageId = 40,
+                            ImageUrl = "https://i0.wp.com/www.screenspy.com/wp-content/uploads/2022/07/attack-on-titan-s1-e25-2.png?ssl=1",
+                            ProductId = 8
+                        },
+                        new
+                        {
+                            ImageId = 41,
+                            ImageUrl = "https://dw9to29mmj727.cloudfront.net/promo/2016/6231-SeriesHeaders_HxH_2000x800.jpg",
+                            ProductId = 9
+                        },
+                        new
+                        {
+                            ImageId = 42,
+                            ImageUrl = "https://static1.cbrimages.com/wordpress/wp-content/uploads/2021/06/Hunter-x-Hunter-1.jpg",
+                            ProductId = 9
+                        },
+                        new
+                        {
+                            ImageId = 43,
+                            ImageUrl = "https://staticg.sportskeeda.com/editor/2022/04/33e84-16505291054558-1920.jpg",
+                            ProductId = 9
+                        },
+                        new
+                        {
+                            ImageId = 44,
+                            ImageUrl = "https://www.thenewshouse.com/wp-content/uploads/Untitled-design-4-1024x683.png",
+                            ProductId = 9
+                        },
+                        new
+                        {
+                            ImageId = 45,
+                            ImageUrl = "https://staticg.sportskeeda.com/editor/2022/11/70a3e-16680920162796-1920.jpg",
+                            ProductId = 9
                         });
                 });
 
