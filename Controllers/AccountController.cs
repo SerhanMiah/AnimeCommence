@@ -51,8 +51,15 @@ namespace AnimeShop.Controllers
 
                 if (result.Succeeded)
                 {
-                    // Return Ok or a Token
-                    return Ok(); // temporary Ok() for now
+                    var claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.NameIdentifier, user.Id),
+                        new Claim(ClaimTypes.Name, user.UserName),
+                    };
+
+                    var token = GenerateJwtToken(claims); 
+
+                    return Ok(new { Token = token });
                 }
 
                 // Handle failure and return the errors
@@ -108,51 +115,49 @@ namespace AnimeShop.Controllers
                 return BadRequest("An error occurred while logging in.");
             }
         }
-
-
         
-[Authorize]
-[HttpGet]
-[Route("profile")]
-public async Task<IActionResult> GetProfile()
-{
-    try
-    {
-        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-        if (string.IsNullOrEmpty(userId))
+        [Authorize]
+        [HttpGet]
+        [Route("profile")]
+        public async Task<IActionResult> GetProfile()
         {
-            return Unauthorized();
+            try
+            {
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+                if (string.IsNullOrEmpty(userId))
+                {
+                    return Unauthorized();
+                }
+
+                var user = await _userManager.FindByIdAsync(userId);
+                if (user == null)
+                {
+                    return NotFound("User not found.");
+                }
+
+                var profile = new UserViewModel
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    UserName = user.UserName,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Address = user.Address,
+                    City = user.City,
+                    State = user.State,
+                    PostalCode = user.PostalCode,
+                    Country = user.Country
+                };
+
+                return Ok(profile);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return BadRequest("An error occurred while getting the profile.");
+            }
         }
-
-        var user = await _userManager.FindByIdAsync(userId);
-        if (user == null)
-        {
-            return NotFound("User not found.");
-        }
-
-        var profile = new
-        {
-            Id = user.Id,
-            Email = user.Email,
-            UserName = user.UserName,
-            FirstName = user.FirstName,
-            LastName = user.LastName,
-            Address = user.Address,
-            City = user.City,
-            State = user.State,
-            PostalCode = user.PostalCode,
-            Country = user.Country
-        };
-
-        return Ok(profile);
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine(ex.Message);
-        return BadRequest("An error occurred while getting the profile.");
-    }
-}
 
 
         private string GenerateJwtToken(List<Claim> claims)

@@ -18,6 +18,7 @@ function Products() {
         const response = await axios.get('http://localhost:5000/api/product');
         const products = response.data.$values || [];
         setProducts(products);
+        console.log(response.data.$values)
       } catch (error) {
         console.error('Error fetching data', error);
       }
